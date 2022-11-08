@@ -39,7 +39,7 @@ pipeline {
                 CREDENTIALS_ID = 'kubernetes'		
 	}
 	
-    stages {
+    
 	    stage('Scm Checkout') {
 		    steps {
 			    checkout scm
@@ -96,4 +96,3 @@ pipeline {
 		    }
 	    }
     }
-}
