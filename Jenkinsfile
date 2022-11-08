@@ -29,8 +29,7 @@ pipeline {
                  	}
                	 }  
               }	
-		
-            }	       	     	         
+			       	     	         
 	
 	environment {
 		PROJECT_ID = 'santu0908-365206'
@@ -95,4 +94,5 @@ pipeline {
 			    echo "Deployment Finished ..."
 		    }
 	    }
-    }
+            }
+	}
