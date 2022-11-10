@@ -65,11 +65,11 @@
     </build>
 	<distributionManagement>
     <snapshotRepository>
-      <id>nexusdeploymentrepo</id>
+      <id>nexusRepo</id>
       <url>http://35.228.99.220:8081/repository/nexus-snapshots/</url>
     </snapshotRepository>
 	<repository>
-	  <id>nexusdeploymentrepo</id>
+	  <id>nexusRepo</id>
       <url>http://35.228.99.220:8081/repository/nexus-releases/</url>
     </repository>
   
