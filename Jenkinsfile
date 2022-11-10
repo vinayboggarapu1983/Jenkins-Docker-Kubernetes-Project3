@@ -10,15 +10,15 @@ pipeline {
                 LOCATION = 'us-central1'
                 CREDENTIALS_ID = 'kubernetes'		
 				// This can be nexus3 or nexus2
-        NEXUS_VERSION = "nexus3"
+        NEXUS_VERSION = 'nexus3'
         // This can be http or https
-        NEXUS_PROTOCOL = "http"
+        NEXUS_PROTOCOL = 'http'
         // Where your Nexus is running
-        NEXUS_URL = "35.228.99.220:8081"
+        NEXUS_URL = '35.228.99.220:8081'
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "repository-example"
+        NEXUS_REPOSITORY = 'repository-example'
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "nexus-credentials"
+        NEXUS_CREDENTIAL_ID = 'nexus-setup'
 	}
 	
         
