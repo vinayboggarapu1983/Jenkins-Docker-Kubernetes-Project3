@@ -59,7 +59,7 @@ pipeline {
 		
 		stage('Upload War To Nexus'){
             steps{
-                
+                script{
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'k8sDemo', 
@@ -77,7 +77,7 @@ pipeline {
                     version: "1.0-AMIT"
                     }
             }
-	    
+		}
 	    stage('Build Docker Image') {
 		    steps {
 			    sh 'whoami'
