@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	tools {
-		maven 'Maven3.8.6'
+		maven 'Maven'
 	}
 	
 	environment {
@@ -9,16 +9,6 @@ pipeline {
                 CLUSTER_NAME = 'autopilot-cluster-1'
                 LOCATION = 'us-central1'
                 CREDENTIALS_ID = 'kubernetes'		
-				// This can be nexus3 or nexus2
-        NEXUS_VERSION = 'nexus3'
-        // This can be http or https
-        NEXUS_PROTOCOL = 'http'
-        // Where your Nexus is running
-        NEXUS_URL = '35.228.99.220:8081'
-        // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = 'repository-example'
-        // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = 'nexus-setup'
 	}
 	
         
@@ -36,7 +26,7 @@ pipeline {
 			      withSonarQubeEnv('sonarserver') { 
 			      sh "mvn clean sonar:sonar"
                        	     	}
-			      timeout(5) {
+			      timeout(time: 1, unit: 'HOURS') {
 			      def qg = waitForQualityGate()
 				      if (qg.status != 'OK') {
 					   error "Pipeline aborted due to quality gate failure: ${qg.status}"
@@ -66,8 +56,8 @@ pipeline {
 			    sh 'mvn test'
 		    }
 	    }
-	
-       stage('Upload War To Nexus'){
+		
+		stage('Upload War To Nexus'){
             steps{
                 
                     nexusArtifactUploader artifacts: [
@@ -87,8 +77,7 @@ pipeline {
                     version: "1.0-AMIT"
                     }
             }
-        }
-    
+	    
 	    stage('Build Docker Image') {
 		    steps {
 			    sh 'whoami'
@@ -125,5 +114,5 @@ pipeline {
 			    echo "Deployment Finished ..."
 		    }
 	    }
-            
+            }
 	}
