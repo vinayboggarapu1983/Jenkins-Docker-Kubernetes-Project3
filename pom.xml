@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>k8sDemo.devops.gcp</groupId>
     <artifactId>k8sDemo</artifactId>
-    <version>8.2.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Project Build</name>
 
@@ -26,11 +26,6 @@
     <build>
         <pluginManagement>
             <plugins>
-		<plugin>
-         	    <groupId>org.sonarsource.scanner.maven</groupId>
-        	    <artifactId>sonar-maven-plugin</artifactId>
-        	    <version>3.9.1.2184</version>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
@@ -63,15 +58,4 @@
             </plugin>
         </plugins>
     </build>
-	<distributionManagement>
-    <snapshotRepository>
-      <id>nexusRepo</id>
-      <url>http://35.228.99.220:8081/repository/nexus-snapshots/</url>
-    </snapshotRepository>
-	<repository>
-	  <id>nexusRepo</id>
-      <url>http://35.228.99.220:8081/repository/nexus-releases/</url>
-    </repository>
-  
-  </distributionManagement>
 </project>
