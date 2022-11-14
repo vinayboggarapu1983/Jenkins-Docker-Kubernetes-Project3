@@ -79,6 +79,7 @@ pipeline {
 		    }
 	    }
 	    
+		stage {testing git revert}
 	    stage('Deploy to K8s') {
 		    steps{
 			    echo "Deployment started ..."
